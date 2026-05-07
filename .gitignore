@@ -21,6 +21,9 @@ __pycache__/
 *.pth
 *.ckpt
 runs/
+!runs/
+!runs/*.png
+!runs/metrics.json
 checkpoints/
 outputs/
 
