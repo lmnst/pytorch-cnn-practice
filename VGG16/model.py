@@ -1,7 +1,6 @@
 import torch
 from torch import nn
-from torchsummary import summary
-import torch.nn.functional as F
+
 
 class VGG16(nn.Module):
     def __init__(self, *args, **kwargs):
@@ -82,9 +81,12 @@ class VGG16(nn.Module):
         x = self.block4(x)
         x = self.block5(x)
         x = self.block6(x)
+        return x
 
 
 if __name__ == "__main__":
+    from torchsummary import summary
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     model = VGG16().to(device)

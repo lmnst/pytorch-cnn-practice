@@ -1,7 +1,7 @@
 import torch
 from torch import nn
-from torchsummary import summary
 import torch.nn.functional as F
+
 
 class AlexNet(nn.Module):
     def __init__(self, *args, **kwargs):
@@ -41,6 +41,8 @@ class AlexNet(nn.Module):
         
 
 if __name__ == "__main__":
+    from torchsummary import summary
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     model = AlexNet().to(device)

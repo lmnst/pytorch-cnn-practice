@@ -1,7 +1,6 @@
 import torch
 from torch import nn
-from torchsummary import summary
-import torch.nn.functional as F
+
 
 class Inception(nn.Module):
     def __init__(self, in_channels, c1, c2, c3, c4):
@@ -97,7 +96,9 @@ class GoogLeNet(nn.Module):
         return x
     
 if __name__ == "__main__":
+    from torchsummary import summary
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    
+
     model = GoogLeNet(Inception).to(device)
     print(summary(model, input_size=(1, 224, 224)))
